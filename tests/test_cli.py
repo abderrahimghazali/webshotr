@@ -2,7 +2,7 @@ import pytest
 import tempfile
 import os
 from click.testing import CliRunner
-from websnap.cli import main
+from webshotr.cli import main
 
 class TestCLI:
     
@@ -25,7 +25,7 @@ class TestCLI:
         """Test help command"""
         result = runner.invoke(main, ['--help'])
         assert result.exit_code == 0
-        assert 'WebSnap' in result.output
+        assert 'WebShotr' in result.output
 
     def test_single_url(self, runner, temp_dir):
         """Test single URL screenshot"""

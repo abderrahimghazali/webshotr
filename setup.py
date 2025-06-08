@@ -7,14 +7,14 @@ except FileNotFoundError:
     long_description = "A simple and fast website screenshot tool"
 
 setup(
-    name="websnap",
+    name="webshotr",
     version="1.0.0",
     author="AbderrahimGHAZALI",
     author_email="ghazali.abderrahim1@gmail.com",
-    description="A simple and fast website screenshot tool",
+    description="A simple and fast website screenshot tool - WebShotr",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/abderrahimghazali/websnap",
+    url="https://github.com/abderrahimghazali/webshotr",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -27,7 +27,14 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Topic :: Internet :: WWW/HTTP :: Browsers",
+        "Topic :: Multimedia :: Graphics :: Capture :: Screen Capture",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Utilities",
     ],
+    keywords="screenshot, web, automation, playwright, browser, capture",
     python_requires=">=3.7",
     install_requires=[
         "playwright>=1.40.0",
@@ -37,7 +44,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "websnap=websnap.cli:main",
+            "webshotr=webshotr.cli:main",
         ],
     },
 )

@@ -1,5 +1,5 @@
 """
-Command Line Interface for WebSnap
+Command Line Interface for WebShotr
 """
 
 import asyncio
@@ -11,8 +11,8 @@ from typing import List, Optional
 
 import click
 
-from . import WebSnap, __version__
-from .exceptions import WebSnapError
+from . import WebShotr, __version__
+from .exceptions import WebShotrError
 
 
 @click.command()
@@ -54,46 +54,46 @@ def main(
     verbose: bool
 ):
     """
-    WebSnap - Take screenshots of websites
+    WebShotr - Take screenshots of websites
     
     Examples:
     
     \b
     # Single URL
-    websnap https://example.com
+    webshotr https://example.com
     
     \b
     # Multiple URLs
-    websnap https://google.com https://github.com --output screenshots/
+    webshotr https://google.com https://github.com --output screenshots/
     
     \b
     # Full page screenshot
-    websnap https://example.com --full-page --output fullpage.png
+    webshotr https://example.com --full-page --output fullpage.png
     
     \b
     # Mobile viewport
-    websnap https://example.com --mobile --output mobile.png
+    webshotr https://example.com --mobile --output mobile.png
     
     \b
     # From file
-    websnap --list-file urls.txt --output screenshots/
+    webshotr --list-file urls.txt --output screenshots/
     
     \b
     # With config file
-    websnap https://example.com --config config.json
+    webshotr https://example.com --config config.json
     """
     
     def show_banner():
-        """Display the WebSnap banner"""
+        """Display the WebShotr banner"""
         banner = """
 \033[92m
- ██╗    ██╗███████╗██████╗ ███████╗███╗   ██╗ █████╗ ██████╗ 
- ██║    ██║██╔════╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔══██╗
- ██║ █╗ ██║█████╗  ██████╔╝███████╗██╔██╗ ██║███████║██████╔╝
- ██║███╗██║██╔══╝  ██╔══██╗╚════██║██║╚██╗██║██╔══██║██╔═══╝ 
- ╚███╔███╔╝███████╗██████╔╝███████║██║ ╚████║██║  ██║██║     
-  ╚══╝╚══╝ ╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     
-                                                              
+██╗    ██╗███████╗██████╗ ███████╗██╗  ██╗ ██████╗ ████████╗██████╗ 
+██║    ██║██╔════╝██╔══██╗██╔════╝██║  ██║██╔═══██╗╚══██╔══╝██╔══██╗
+██║ █╗ ██║█████╗  ██████╔╝███████╗███████║██║   ██║   ██║   ██████╔╝
+██║███╗██║██╔══╝  ██╔══██╗╚════██║██╔══██║██║   ██║   ██║   ██╔══██╗
+╚███╔███╔╝███████╗██████╔╝███████║██║  ██║╚██████╔╝   ██║   ██║  ██║
+ ╚══╝╚══╝ ╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝
+                                                                     
                                v1.0.0
 \033[0m"""
         click.echo(banner)
@@ -162,11 +162,11 @@ def main(
     }
     
     try:
-        # Initialize WebSnap
-        snap = WebSnap(**final_config)
+        # Initialize WebShotr
+        snap = WebShotr(**final_config)
         
         if verbose:
-            click.echo(f"WebSnap v{__version__}")
+            click.echo(f"WebShotr v{__version__}")
             click.echo(f"Browser: {browser}")
             click.echo(f"Viewport: {width}x{height}")
             click.echo(f"URLs to process: {len(url_list)}")
@@ -193,8 +193,8 @@ def main(
             for i, result in enumerate(results):
                 click.echo(f"  {url_list[i]} -> {os.path.basename(result)}")
     
-    except WebSnapError as e:
-        click.echo(f"WebSnap error: {e}", err=True)
+    except WebShotrError as e:
+        click.echo(f"WebShotr error: {e}", err=True)
         sys.exit(1)
     except KeyboardInterrupt:
         click.echo("\nOperation cancelled by user", err=True)

@@ -1,8 +1,8 @@
-# WebSnap 📸
+# WebShotr 📸
 
 A simple, fast, and elegant website screenshot tool built with Python and Playwright.
 
-![WebSnap Logo](https://i.imgur.com/FsL8MlY.png)
+![WebShotr Logo](https://i.imgur.com/FsL8MlY.png)
 
 ## ✨ Features
 
@@ -23,15 +23,15 @@ A simple, fast, and elegant website screenshot tool built with Python and Playwr
 - Python 3.7+
 - pip
 
-### Install WebSnap
+### Install WebShotr
 
 ```bash
-pip install websnap
+pip install webshotr
 ```
 
 ### Install Playwright Browsers
 
-After installing WebSnap, you need to install the browser binaries:
+After installing WebShotr, you need to install the browser binaries:
 
 ```bash
 playwright install
@@ -44,22 +44,22 @@ playwright install
 Take a screenshot of a website:
 
 ```bash
-websnap https://example.com
+webshotr https://example.com
 ```
 
 See the beautiful banner and help:
 
 ```bash
-websnap
+webshotr
 ```
 
 ### Python API Usage
 
 ```python
-from websnap import WebSnap
+from webshotr import WebShotr
 
-# Create WebSnap instance
-snap = WebSnap()
+# Create WebShotr instance
+snap = WebShotr()
 
 # Take a screenshot
 snap.screenshot("https://example.com", "screenshot.png")
@@ -73,52 +73,52 @@ snap.screenshot("https://example.com", "screenshot.png")
 
 ```bash
 # Basic screenshot
-websnap https://example.com
+webshotr https://example.com
 
 # Custom output path
-websnap https://example.com --output my-screenshot.png
+webshotr https://example.com --output my-screenshot.png
 
 # Full page screenshot
-websnap https://example.com --full-page --output fullpage.png
+webshotr https://example.com --full-page --output fullpage.png
 ```
 
 #### Mobile Screenshots
 
 ```bash
 # Mobile viewport
-websnap https://example.com --mobile --output mobile.png
+webshotr https://example.com --mobile --output mobile.png
 
 # Custom mobile dimensions
-websnap https://example.com --width 375 --height 812 --output iphone.png
+webshotr https://example.com --width 375 --height 812 --output iphone.png
 ```
 
 #### Multiple Websites
 
 ```bash
 # Multiple URLs
-websnap https://google.com https://github.com --output screenshots/
+webshotr https://google.com https://github.com --output screenshots/
 
 # From file
-websnap --list-file urls.txt --output screenshots/
+webshotr --list-file urls.txt --output screenshots/
 ```
 
 #### Advanced Options
 
 ```bash
 # Custom browser, quality, and delay
-websnap https://example.com \
+webshotr https://example.com \
   --browser firefox \
   --quality 90 \
   --delay 3 \
   --timeout 30
 
 # Screenshot specific element
-websnap https://example.com \
+webshotr https://example.com \
   --element "#main-content" \
   --output element.png
 
 # Use configuration file
-websnap https://example.com --config config.json
+webshotr https://example.com --config config.json
 ```
 
 ### Python API Examples
@@ -126,7 +126,7 @@ websnap https://example.com --config config.json
 #### Basic Usage
 
 ```python
-from websnap import WebSnap, screenshot
+from webshotr import WebShotr, screenshot
 
 # Quick function
 screenshot("https://example.com", "output.png")
@@ -139,10 +139,10 @@ screenshot("https://example.com", "output.png",
 #### Advanced Usage
 
 ```python
-from websnap import WebSnap
+from webshotr import WebShotr
 
 # Create instance with custom settings
-snap = WebSnap(
+snap = WebShotr(
     width=1920,
     height=1080,
     browser_type="firefox",
@@ -163,10 +163,10 @@ print(f"Saved {len(results)} screenshots")
 
 ```python
 import asyncio
-from websnap import WebSnap
+from webshotr import WebShotr
 
 async def take_screenshots():
-    async with WebSnap() as snap:
+    async with WebShotr() as snap:
         # Async screenshot
         result = await snap.screenshot_async(
             "https://example.com", 
@@ -211,14 +211,14 @@ Create a `config.json` file:
   "headless": true,
   "timeout": 30000,
   "browser_type": "chromium",
-  "user_agent": "Mozilla/5.0 (compatible; WebSnap/1.0)"
+  "user_agent": "Mozilla/5.0 (compatible; WebShotr/1.0)"
 }
 ```
 
 Use it with:
 
 ```bash
-websnap https://example.com --config config.json
+webshotr https://example.com --config config.json
 ```
 
 ### URL List File
@@ -235,15 +235,15 @@ https://github.com
 Use it with:
 
 ```bash
-websnap --list-file urls.txt --output screenshots/
+webshotr --list-file urls.txt --output screenshots/
 ```
 
 ## 🐍 API Reference
 
-### WebSnap Class
+### WebShotr Class
 
 ```python
-WebSnap(
+WebShotr(
     width: int = 1280,
     height: int = 720,
     headless: bool = True,
@@ -263,7 +263,7 @@ WebSnap(
 ### Convenience Functions
 
 ```python
-from websnap import screenshot, screenshot_multiple
+from webshotr import screenshot, screenshot_multiple
 
 # Quick screenshot
 screenshot("https://example.com", "output.png")
@@ -278,8 +278,8 @@ screenshot_multiple(urls, "screenshots/")
 
 ```bash
 # Clone the repository
-git clone https://github.com/abderrahimghazali/websnap.git
-cd websnap
+git clone https://github.com/abderrahimghazali/webshotr.git
+cd webshotr
 
 # Create virtual environment
 python -m venv venv
@@ -305,17 +305,17 @@ pytest tests/ -v
 pytest tests/test_cli.py -v
 
 # Run with coverage
-pytest tests/ --cov=websnap
+pytest tests/ --cov=webshotr
 ```
 
 ### Code Style
 
 ```bash
 # Check code style
-flake8 websnap/ tests/
+flake8 webshotr/ tests/
 
 # Format code (if you have black installed)
-black websnap/ tests/
+black webshotr/ tests/
 ```
 
 ## 📝 Requirements
@@ -342,8 +342,8 @@ black websnap/ tests/
 
 ## 📬 Support
 
-- 🐛 [Report Issues](https://github.com/abderrahimghazali/websnap/issues)
-- 💡 [Feature Requests](https://github.com/abderrahimghazali/websnap/issues)
+- 🐛 [Report Issues](https://github.com/abderrahimghazali/webshotr/issues)
+- 💡 [Feature Requests](https://github.com/abderrahimghazali/webshotr/issues)
 
 ---
 

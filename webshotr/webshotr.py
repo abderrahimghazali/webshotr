@@ -1,5 +1,5 @@
 """
-Main WebSnap class for taking website screenshots
+Main WebShotr class for taking website screenshots
 """
 
 import asyncio
@@ -12,20 +12,20 @@ from urllib.parse import urlparse
 from playwright.async_api import async_playwright, Browser, Page
 from PIL import Image
 
-from .exceptions import WebSnapError, TimeoutError, NavigationError
+from .exceptions import WebShotrError, TimeoutError, NavigationError
 
 
-class WebSnap:
+class WebShotr:
     """
-    WebSnap - Easy website screenshot tool
+    WebShotr - Easy website screenshot tool
     
     Examples:
         Basic usage:
-        >>> snap = WebSnap()
+        >>> snap = WebShotr()
         >>> snap.screenshot("https://example.com", "screenshot.png")
         
         With options:
-        >>> snap = WebSnap(width=1920, height=1080, headless=True)
+        >>> snap = WebShotr(width=1920, height=1080, headless=True)
         >>> snap.screenshot("https://github.com", "github.png", full_page=True)
         
         Multiple URLs:
@@ -44,7 +44,7 @@ class WebSnap:
         **kwargs
     ):
         """
-        Initialize WebSnap
+        Initialize WebShotr
         
         Args:
             width: Viewport width in pixels
@@ -65,7 +65,7 @@ class WebSnap:
         
         # Validate browser type
         if self.browser_type not in ["chromium", "firefox", "webkit"]:
-            raise WebSnapError(f"Unsupported browser type: {browser_type}")
+            raise WebShotrError(f"Unsupported browser type: {browser_type}")
     
     async def __aenter__(self):
         """Async context manager entry"""
@@ -183,7 +183,7 @@ class WebSnap:
                 if element:
                     await element.screenshot(**screenshot_options)
                 else:
-                    raise WebSnapError(f"Element not found: {element_selector}")
+                    raise WebShotrError(f"Element not found: {element_selector}")
             else:
                 # Screenshot entire page/viewport
                 await page.screenshot(**screenshot_options)
@@ -313,7 +313,7 @@ def screenshot(url: str, output: Optional[str] = None, **kwargs) -> str:
     Returns:
         Path to saved screenshot
     """
-    snap = WebSnap(**kwargs)
+    snap = WebShotr(**kwargs)
     return snap.screenshot(url, output, **kwargs)
 
 
@@ -329,5 +329,5 @@ def screenshot_multiple(urls: List[str], output_dir: str = "screenshots", **kwar
     Returns:
         List of paths to saved screenshots
     """
-    snap = WebSnap(**kwargs)
+    snap = WebShotr(**kwargs)
     return snap.screenshot_multiple(urls, output_dir, **kwargs)
