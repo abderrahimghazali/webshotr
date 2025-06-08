@@ -2,7 +2,7 @@
 
 A simple, fast, and elegant website screenshot tool built with Python and Playwright.
 
-![WebShotr Logo](https://i.imgur.com/FsL8MlY.png)
+![WebShotr Logo](https://i.imgur.com/9AsVEfZ.png)
 
 ## ✨ Features
 
