@@ -278,7 +278,7 @@ screenshot_multiple(urls, "screenshots/")
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/websnap.git
+git clone https://github.com/abderrahimghazali/websnap.git
 cd websnap
 
 # Create virtual environment
@@ -334,10 +334,6 @@ black websnap/ tests/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - Built with [Playwright](https://playwright.dev/) for reliable browser automation
@@ -346,9 +342,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Support
 
-- 🐛 [Report Issues](https://github.com/your-username/websnap/issues)
-- 💡 [Feature Requests](https://github.com/your-username/websnap/issues)
-- 📖 [Documentation](https://github.com/your-username/websnap/wiki)
+- 🐛 [Report Issues](https://github.com/abderrahimghazali/websnap/issues)
+- 💡 [Feature Requests](https://github.com/abderrahimghazali/websnap/issues)
 
 ---
 
